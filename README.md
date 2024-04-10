@@ -49,7 +49,8 @@
 3. 음식점 목록 조회에 redis 적용
    - 서비스의 확장성을 고려하여 redis를 적용
      - redis 적용 전
-       [![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8842ffa4-f952-449b-ba05-29bb5cb3e6d7/7344e4b5-ba38-4890-8ee7-42ab9bfe7825/Untitled.png)]()
+       ![redis 적용 전](https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/cce2d15c-b78a-47ae-87ca-a0e06ae68ebe)
+
      - reids 적용 후
        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8842ffa4-f952-449b-ba05-29bb5cb3e6d7/791b271d-a087-4136-9d3a-097a2650c765/Untitled.png)
      - jmeter로 부하테스트 해본 결과
