@@ -70,6 +70,3 @@
 - 문제: 사업장 새로 추가 시 redis가 업데이트 되지 않음
 - 시도: ttl 설정으로 유효한 시간 마다 데이터를 사동으로 삭제 해주는 기능을 적용하려 했지만 잘되지 않음
 - 해결 방법: 시간 부족으로 사업장이 추가될 때 캐쉬가 한번 지워지도록 구현
-
----
-[- ](https://pacific-hedge-455.notion.site/8e1680955e834bb2939e91ff92d686b5?v=cb919b063ea24a62a048d5f9c467ee2f)https://pacific-hedge-455.notion.site/8e1680955e834bb2939e91ff92d686b5?v=cb919b063ea24a62a048d5f9c467ee2f
