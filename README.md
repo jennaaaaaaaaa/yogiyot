@@ -12,7 +12,6 @@
   - 손님으로 회원가입 할 경우 음식점 조회, 검색, 주문, 주문내역조회 가능
 
 ### 역할
----
 - 음식점 등록 수정 삭제
 - 회원가입 시 이메일인증(nodemailer)
 - 브랜드 검색 (elasticsearch)
@@ -25,7 +24,7 @@
 
 <br>
 
-###프로젝트 진행 단계
+### 프로젝트 진행 단계
 1. 회원가입, 로그인 및 음식점 등록, 수정, 삭제, 메뉴 등록, 수정, 삭제, 음식 주문, 조회 api 구축
 2. api에 접근 권한 설정
 4. 회원가입 시 이메일 인증 기능 구현
@@ -50,17 +49,27 @@
    - 서비스의 확장성을 고려하여 redis를 적용
      - redis 적용 전
        ![redis 적용 전](https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/cce2d15c-b78a-47ae-87ca-a0e06ae68ebe)
-
+       
      - reids 적용 후
-       ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8842ffa4-f952-449b-ba05-29bb5cb3e6d7/791b271d-a087-4136-9d3a-097a2650c765/Untitled.png)
+       
+       ![redis 적용 후](https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/e403df4b-138a-4b2d-9d76-494f41f547ed)
+
      - jmeter로 부하테스트 해본 결과
        - 1000명이 동시에 50초 동안 2번씩 반복 요청 했을 때
-         ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8842ffa4-f952-449b-ba05-29bb5cb3e6d7/44df0613-e22d-40c5-bc0c-850bb5bbbfa4/Untitled.png)
-         - 캐쉬가 있는 상태
-           ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8842ffa4-f952-449b-ba05-29bb5cb3e6d7/6a544b82-8db1-400c-a758-800bca4a89b8/Untitled.png)
+         
+          <img width="145" alt="부하테스트 시나리오" src="https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/9d8fe78e-73b8-4a3d-b52f-9b8c1679b787">
+
+         - redis 적용 상태( 평균 걸린 시간 : 2ms)
+           <img width="875" alt="redis 적용 후 jmeter" src="https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/0f22c8ee-dd4d-472c-9c9f-6a0a706ebe85">
+         - redis 적용 전 상태( 평균 걸린 시간: 5022ms)
+            <img width="880" alt="redis 적용 전 jmeter" src="https://github.com/jennaaaaaaaaa/yogiyot/assets/111362623/3f6c7d69-d4c3-4bc4-bb8d-2648057ee0ff">
 
 <br>
 
-### 📌 주요 기능
+### 트러블슈팅
+- 문제: 사업장 새로 추가 시 redis가 업데이트 되지 않음
+- 시도: ttl 설정으로 유효한 시간 마다 데이터를 사동으로 삭제 해주는 기능을 적용하려 했지만 잘되지 않음
+- 해결 방법: 시간 부족으로 사업장이 추가될 때 캐쉬가 한번 지워지도록 구현
+
 ---
 [- ](https://pacific-hedge-455.notion.site/8e1680955e834bb2939e91ff92d686b5?v=cb919b063ea24a62a048d5f9c467ee2f)https://pacific-hedge-455.notion.site/8e1680955e834bb2939e91ff92d686b5?v=cb919b063ea24a62a048d5f9c467ee2f
